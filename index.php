@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Practica 1</title>
+    <title>Notes</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
     <script src="jquery-1.12.0.min.js"></script>
@@ -246,7 +246,7 @@
 
 
     <script src="NotesAPI.js"></script>
-   
+
     <script>
         $(document).ready(function () {
 
@@ -505,12 +505,12 @@
 
 
             ];
-            
+
             var colores = {
                "BLANCO" : {
                     nombre: "Blanco",
                     color: "rgb(255,255,255)"
-               }, 
+               },
                "ROJO" :  {
                     nombre: "Rojo",
                     color: "rgb(255, 138, 128)"
@@ -518,39 +518,39 @@
                "NARANJA": {
                     nombre: "Naranja",
                     color: "rgb(255, 209, 128)"
-               }, 
+               },
                "AMARILLO": {
                     nombre: "Amarillo",
                     color: "rgb(255, 255, 141)"
-               }, 
+               },
                "GRIS" : {
                     nombre: "Gris claro",
                     "color" : "rgb(207, 216, 220)"
-               }, 
+               },
                "AZUL" : {
                     nombre: "Azul",
                     color: "rgb(128, 216, 255)"
-               }, 
+               },
                "VERDE" :{
                     "nombre" : "Verde Claro",
                     "color" : "rgb(204, 255, 144)"
-               }, 
+               },
                "TURQUESA" : {
                     "nombre": "Turquesa",
                     "color": "rgb(167, 255, 235)"
                }
             };
-                 
+
             for(var i = 0; i < EjemploNotas.length; i++) {
 
                 var randId = Math.floor(Math.random() * (Object.keys(colores).length - 1)) + 0;
-                EjemploNotas[i].titulo =  ("Texto random " + randId).substring(0,50); 
-                
+                EjemploNotas[i].titulo =  ("Texto random " + randId).substring(0,50);
+
                 var idColor = Object.keys(colores)[randId];
                 EjemploNotas[i].color = idColor;
             }
-            
-            //Se inicia los recursos necesarios 
+
+            //Se inicia los recursos necesarios
             eFactoryNotesAPI.init({
                 colores : colores
             });
@@ -568,5 +568,5 @@
 
 </html>
 
-   
+
 

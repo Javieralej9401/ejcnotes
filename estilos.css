@@ -1,0 +1,1018 @@
+body {
+    background-color: #EFEFEF;
+/*    #e8e8e8;*/
+    margin: 0px;
+    font-family: serif;
+    color: #3C3C3C;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+html {}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 9999999999999999;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  
+    /* Enable scroll if needed */
+    background-color: rgba(230, 230, 230, 0.86);
+    ;
+    /* Black w/ opacity */
+}
+
+[contenteditable=true] {
+    outline: none;
+    word-wrap: break-word;
+    
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 10px;
+    width: 80%;
+    position: relative;
+    background-color: #fefefe;
+    margin: 3% auto;
+    width: 60%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    transition: all .118s ease;
+    animation-name: animateleft;
+    animation-duration: 0.5s;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+/*    height: 100%;*/
+    max-height:  calc(85%);
+}
+.modal-content div[contenteditable=true]{
+    min-height: 10px;
+}
+
+@keyframes animatetop {
+    from {
+        top: 50%;
+        opacity: 0
+    }
+    to {
+        top: 5%;
+        opacity: 1
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: 0;
+        opacity: 0
+    }
+    to {
+        left: auto;
+        opacity: 1
+    }
+}
+
+.modal-header {
+    padding: 2px 16px;
+}
+
+
+/* Modal Body */
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+
+/* Modal Footer */
+
+.modal-footer {
+    padding: 2px 16px;
+}
+
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.modal-body,
+.modal-footer {
+    padding: 5px;
+}
+
+.NotasContenedor {
+    width: 0px;
+    /*    margin-left: 10%; */
+    position: absolute;
+    height: 100%;
+}
+
+.contendor-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.boton {
+    cursor: pointer;
+}
+
+.nueva-nota-contenedor {
+    margin-top: 20px;
+    flex-basis: 600px;
+    max-width: 600px;
+    box-shadow: 1px 1.5px 1px 1px #B5B4B4;
+    min-height: 30px;
+/*    display: flex;*/
+    flex-flow: column wrap;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    background-color: #FFF;
+    transition: all .218s ease;
+}
+
+.nueva-nota-contenido {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.input-contenido {
+    border: 0px;
+    width: calc(100% - 80px);
+    outline: none;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+.input-titulo::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   color:  rgb(95, 95, 95);
+    font-size: 18px;
+    line-height: 1;
+}
+.input-titulo::-moz-placeholder { /* Firefox 19+ */
+    color:  rgb(95, 95, 95);
+    font-size: 18px;
+    line-height: 1;
+}
+.input-titulo:-ms-input-placeholder { /* IE 10+ */
+    color:  rgb(95, 95, 95);
+    font-size: 18px;
+    line-height: 1;
+}
+.input-titulo:-moz-placeholder { /* Firefox 18- */
+    color:  rgb(95, 95, 95);
+    font-size: 18px;
+    line-height: 1;
+}
+
+.input-contenido[placeholder]:empty:before {
+    content: attr(placeholder);
+    color:  rgb(95, 95, 95);
+    display: block;
+    font-size: 16px;
+}
+
+
+.nueva-nota-contenedor input {
+    border: 0px;
+    width: 90%;
+    background: none;
+}
+
+
+
+.input-titulo {
+    word-wrap: break-word;
+}
+
+#input-titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nueva-nota-titulo {
+    margin-bottom: 15px;
+}
+
+.nueva-nota-contenido {
+    font-size: 16px;
+}
+
+.nueva-nota-pie {
+    margin-top: 15px;
+    color:  #2B2B2B;
+}
+
+
+
+
+.btn-agregar-nota {
+    border-radius: 4px;
+    border: 0 solid #F4F4F4;
+    background: none;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    
+}
+
+.nueva-nota-pie,
+.nueva-nota-titulo {
+    display: none;
+}
+
+.nueva-nota-pie,
+.modal-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    display: none;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+}
+
+.btn-modificar-nota {
+    border-radius: 4px;
+    border: 0 solid #F4F4F4;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    align-self: stretch;
+}
+
+.btn-modificar-nota:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+    border: 0px;
+    outline: none;
+}
+
+.nota-contenedor {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    min-width: 220px;
+    min-height: 120px;
+    width: 220px;
+    padding: 20px;
+    padding-bottom: 10px;
+    box-shadow: 0.5px 1.8px 1.5px 0px #A7A7A7;
+    transition: all .318s ease;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 2px;
+}
+
+.contenedor-colores {
+    position: absolute;
+    top: 50px;
+    min-height: 80px;
+    max-height: 80px;
+    overflow-y: auto;
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 136px;
+    box-shadow: 0.5px 1px 0.5px 0.2px #B5B4B4;
+    background-color: #FFF;
+    transition: all .518s ease;
+    z-index: 999999;
+}
+
+.boton-color {
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    margin: 2px;
+    display: block;
+    border: 1.7px solid rgba(0, 0, 0, 0.2);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.boton-color:hover {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.color-checked {
+    background-image: url(check.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+}
+
+.nota-contenedor:hover {
+    box-shadow: 1px 1.5px 20px 3px #CCC;
+}
+
+.pie-nota {
+    margin-top: 10px;
+    
+    
+}
+
+.etiquetas-contenedor {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px 0 10px 0;
+    padding-left: 4px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.etiqueta {
+    cursor: pointer;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    outline: none;
+    font-weight: 600;
+}
+
+.nota-contenedor .etiqueta {
+    padding: 0.3em;
+    max-width: 200px;
+}
+
+.nota-contenedor .texto-creador, .nota-contenedor .texto-fecha{
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    float: right;
+}
+
+.vista-nota-2 .etiqueta {
+    padding: 0.5em;
+    max-width: 100%;
+}
+
+.vista-nota-2 .texto-creador, .vista-nota-2 .texto-fecha{
+    max-width: 100%;
+}
+
+
+.cuerpo-nota {
+    word-wrap: break-word;
+    min-height: 30px;
+}
+
+.color-defecto {
+    background-color: white;
+}
+
+.titulo-nota {
+    margin-bottom: 10px;
+    color: #2D2626;
+    font-size: 20px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.ElementoSticky {
+    opacity: 1;
+}
+
+.oculto {
+    opacity: 0;
+}
+
+.nota-contenedor .nota-menu {
+    transition: all .218s ease-in;
+    color: rgba(0, 0, 0, 0.96);
+}
+
+.nota-contenedor:hover .oculto {
+    opacity: 1;
+}
+
+.boton {
+    opacity: 0.54;
+    color: rgba(0, 0, 0, 0) cursor: pointer;
+    margin-right: 12px;
+    font-size: 17px;
+    padding: 5px;
+}
+
+.boton:hover {
+    opacity: 1;
+}
+
+.nota-contenedor .boton {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.nueva-nota-contenido .boton {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.info-nota{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.info-nota i{
+    margin-right: 3px;
+}
+
+
+.modal-content .info-nota{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.btn-agregar-nota:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.menu-opcion {
+    background-color: #FFF;
+    border-radius: 2px;
+    position: absolute;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    z-index: 9999;
+    height: auto;
+    min-width: 150px;
+    padding: 5px 0px 5px 0px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2)
+}
+
+.menu-opcion ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-opcion ul li {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px;
+    padding-left: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #4A4444;
+}
+
+.menu-opcion ul li:hover {
+    background-color: rgba(218, 218, 218, 0.59);
+}
+
+.menu-opcion ul li input,
+select {
+    border: 0px;
+    display: none;
+}
+
+.contenedor-filtros {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.contenedor-filtros .etiqueta {
+    max-width: 200px;
+    display: inline-flex;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.etiqueta .add-on {
+    margin-right: 4px;
+}
+
+.menu-filtros {
+    max-width: 220px;
+    width: 220px;
+    padding: 5px 0px 5px 0px;
+    display: none;
+    font-size: 12px;
+}
+
+.menu-filtros ul {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.menu-filtros ul li {
+    padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-filtros ul li .boton {
+    padding: 8px;
+    min-width: 24px;
+    text-align: center;
+    font-size: 24px;
+    margin: 0px;
+}
+
+.menu-filtros ul li:hover .boton {
+    opacity: 1;
+}
+
+.menu-filtros ul li input,
+select {
+    border: 0px;
+    height: 100%;
+    margin: 0 8px 0 3px;
+    padding: 4px;
+    width: calc(100% - 70px);
+    background-color: #FFF;
+    padding: 5px;
+    display: block;
+}
+
+.titulo-mostrar {
+    display: none;
+    padding: 5px;
+    padding-left: 8px;
+    color: #3C3B3B;
+}
+
+
+.btn-submit, .btn-principal{
+    border-radius: 4px;
+    color:#FFF;
+    border-color: #2d4259;
+    color: #FFF;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #364F6A;
+}
+.btn-nueva-nota-2{
+    border-color: #364F6A;
+    color: #364F6A;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    border: 1.5px solid;
+    background-color: #FFF;
+    border-radius: 4px;
+    text-shadow: 0.01px 0.01px;
+/*
+    position: absolute;
+    right:0px;
+*/
+}
+.btn-nueva-nota-2:hover{
+    background-color: #364F6A;
+    color: #FFF;
+}
+.btn-submit:hover{
+   
+  background-color:#2d4259;
+}
+.btn-guardar-cambios {
+    position: fixed;
+    bottom: 2px;
+    right: 10px;
+    padding: 8px;
+    z-index: 9999;
+    margin: 0px;
+}
+
+/* Estilos 2 vista de notas (Tabular) */
+.panel-vista-notas-contenedor {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px 0px 10px 0px;
+    color: #464646;
+    max-height: 80vh;
+    display: none
+}
+
+.carret {
+    clip: rect(-3px 7px 17px -3px);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50%) translateY(0%);
+    transition: opacity 250ms;
+    top:0;
+}
+
+.carret:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #CDCFD2;
+    content: "";
+    display: block;
+    height: 14px;
+    transform: rotate(45deg);
+    width: 14px;
+}
+
+.panel {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px 3px 0 0;
+}
+
+.panel-izquierdo {
+    margin-right: 15px;
+    flex-basis: 400px;
+    max-width: 400px;
+    position: relative;
+    transition: all 0.5s ease;
+    overflow: auto;
+}
+
+.panel-derecho {
+    flex-basis: 90%;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.nota-item-panel {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    cursor: pointer;
+}
+
+.nota-item-panel:hover {
+    background: rgba(0, 0, 0, 0.08)
+}
+
+.nota-item-panel .titulo {
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nota-item-panel .opcionesNota {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    display: none;
+}
+
+.nota-item-panel .opcionesNota ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nota-item-panel .opcionesNota li {
+    flex-basis: 80px;
+    margin: 2px;
+}
+.contenedor .visorImagenes{
+    margin: -21px -21px 10px -21px;
+    width: initial;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    
+}
+.vista-nota-2  .visorImagenes{
+     margin: -11px -11px 10px -11px;
+}
+
+.contenedor  .visorImagenes .background-empty{
+    font-size: 1.1em;
+}
+.contenedor  .visorImagenes .background-empty i{
+    margin-top: 20px;
+    font-size: 30px;
+}
+.contenedor  .visorImagenes input{
+    margin:0px;
+}
+
+.contenedor:hover .visorImagenes img{
+    opacity: 1;
+}
+.contenido-panel{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.panel-izquierdo .panel-top {
+    padding: 18px;
+    padding-left: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.panel-derecho .cabecera {
+    min-height: 40px;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.cabecera .input {
+    border: 0px;
+    font-size: 22px;
+    font-weight: bold;
+    width: calc(100% - 200px);
+    background:none;
+}
+
+.panel-derecho .cuerpo-nota {
+    padding: 20px;
+}
+
+.panel-derecho .cuerpo-nota .contenido-nota {
+    min-height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.panel-derecho .pie-nota{
+    padding-left: 5px;
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+}
+.panel-derecho .etiquetas-contenedor {
+    padding: 20px;
+}
+
+.panel-derecho .etiquetas-contenedor .etiqueta {
+    padding: 8px;
+    font-size: 12px;
+}
+
+.panel-derecho .opciones-nota .nota-menu {
+    display: flex;
+}
+
+.panel-derecho .opciones-nota .boton {
+    font-size: 18px;
+    font-weight: normal;
+    border-radius: 50%;
+    padding: 6px;
+    min-width: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.panel-derecho .opciones-nota .boton:hover {
+    border: 2.5px solid rgba(0, 0, 0, 0.15);
+}
+
+.panel-derecho .pie-nota {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    padding-bottom: 15px;
+}
+
+.btn-lg {
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    background: none;
+    cursor: pointer;
+}
+
+.btn-lg:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.btn-md {
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.titulo-panel-izquierdo {
+    font-size: 20px;
+}
+
+.titulo-principal {
+    margin-left: 5px;
+}
+
+.panel-izquierdo .notas-contenedor {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.contenedor-contenido {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+/* Estilos de lista dinamica */
+
+.dynamic-list{
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    background: none;
+    font-size: inherit;
+}
+.dynamic-list li{
+    height: 20px;
+    line-height: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-top: 5px;
+
+}
+.dynamic-list li:hover{
+/*            background-color: rgba(0,0,0,0.07);*/
+}
+.del-item{
+    float:right;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.lista-contenido{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+    min-width: 250px;
+}
+.list-checkbox{
+    min-height: 12px;
+    min-width: 12px;
+    background:none;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: inline-block;
+
+}
+.item-place{
+       margin-right: 10px;
+}
+.item-place,  .lista-contenido{
+    float: left;
+
+}
+
+/* Estilos para carousel de imagenes */
+
+.visorImagenes{
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    /* min-width: 500px; */
+    background: rgba(0,0,0,0.04);
+    position: relative;
+}
+.visorImagenes input{
+   position: absolute;
+   margin: 0;
+   padding: 0px;
+   cursor: pointer;
+   opacity: 0;
+   filter: alpha(opacity=0);
+   width: 100%;
+   height: inherit;
+   z-index: 9999;
+   margin-left: 30px;
+   margin-right: 30px;
+}
+
+
+.visorImagenes .contenedor-imagenes .activa{
+    display: block;
+    transition: all 0.5s ease;
+}
+.visorImagenes .contenedor-imagenes img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.8;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.visorImagenes:hover img{
+    opacity: 1;
+}
+.visorImagenes .navegacion{
+  position: absolute;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  z-index: 9999999;
+  display: none;
+  color: rgba(255, 255, 255, 0.71);
+}
+.visorImagenes .navegacion i{
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+    position: relative;
+}
+.visorImagenes .imagenAnterior{
+   top:0;
+   left: 0px;
+}
+
+.visorImagenes .imagenSiguiente{
+   top:0;
+   right:0;
+}
+.visorImagenes .background-empty{
+    text-align: center;
+    position: relative;
+    color:  #3C3C3C;
+    top: 50%;
+    transform: translateY(50%);
+    font-size: 1.2em;
+    padding: 5px;
+}
+.visorImagenes .background-empty i{
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+.nueva-nota-contenedor .background-empty{
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .nota-contenedor {
+        margin-right: 5px;
+        margin-left: 8px;
+        margin-bottom: 10px;
+        width: calc(100% - 3.5em);
+    }
+}
